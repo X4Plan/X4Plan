@@ -1,93 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>URLs do Sitemap — X4Plan</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; color: #222; }
-    h1 { text-align: center; color: #0b1220; }
-    #buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-    .link-btn {
-      padding: 10px 14px;
-      background: #F78D4C;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 14px;
-      display: inline-block;
-    }
-    .link-btn:hover { background: #d8743f; }
-    #copyArea {
-      width: 100%; min-height: 60px; padding: 10px; margin-top: 20px;
-      border: 1px solid #ccc; border-radius: 6px; background: #fff;
-      white-space: pre-wrap; font-family: monospace;
-    }
-    button { margin-right: 8px; padding: 8px 12px; border: none;
-      border-radius: 4px; cursor: pointer; }
-    button.copy { background: #007bff; color: white; }
-    button.refresh { background: #28a745; color: white; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>X4Plan – Lista Automática de Páginas</title>
+
+<style>
+  body {
+    background: #0b1220;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #F78D4C;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .btn {
+    background: #F78D4C;
+    color: #0b1220;
+    padding: 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+  #loading {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+</style>
 </head>
 <body>
-  <h1>URLs do Sitemap — X4Plan</h1>
-  <div>
-    <button class="refresh" id="refreshBtn">Atualizar lista</button>
-    <button class="copy" id="copyBtn">Copiar todas as URLs</button>
-  </div>
-  <div id="copyArea">Carregando…</div>
-  <div id="buttons"></div>
+
+<h1>Páginas do Site X4Plan</h1>
+<div id="container"></div>
+<div id="loading">Carregando sitemap…</div>
 
 <script>
-const SITEMAP = 'https://www.x4plan.com.br/pages-sitemap.xml';
+  const sitemapURL = "https://www.x4plan.com.br/sitemap.xml";
 
-async function fetchSitemap() {
-  try {
-    const response = await fetch(SITEMAP);
-    if (!response.ok) throw new Error('HTTP ' + response.status);
-    const xml = await response.text();
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(xml, 'application/xml');
-    const locs = Array.from(xmlDoc.getElementsByTagName('loc')).map(el => el.textContent.trim());
-    return locs;
-  } catch (err) {
-    console.error('Erro ao buscar sitemap:', err);
-    return null;
+  function formatName(url) {
+    let name = url.replace("https://www.x4plan.com.br/", "")
+                  .replace("/", "")
+                  .replace("-", " ")
+                  .replace(".html", "")
+                  .trim();
+
+    if (name === "") name = "Página Inicial";
+
+    return name.charAt(0).toUpperCase() + name.slice(1);
   }
-}
 
-async function renderLinks() {
-  const locs = await fetchSitemap();
-  const buttonsDiv = document.getElementById('buttons');
-  const copyArea = document.getElementById('copyArea');
-  buttonsDiv.innerHTML = '';
-  if (!locs) {
-    copyArea.textContent = 'Não foi possível carregar as URLs.';
-    return;
-  }
-  copyArea.textContent = locs.join('\n');
-  locs.forEach(url => {
-    const a = document.createElement('a');
-    a.href = url;
-    a.textContent = url;
-    a.target = '_blank';
-    a.className = 'link-btn';
-    buttonsDiv.appendChild(a);
-  });
-}
+  fetch(sitemapURL)
+    .then(response => response.text())
+    .then(xmlText => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlText, "application/xml");
 
-document.getElementById('refreshBtn').addEventListener('click', renderLinks);
-document.getElementById('copyBtn').addEventListener('click', async () => {
-  const text = document.getElementById('copyArea').textContent;
-  try {
-    await navigator.clipboard.writeText(text);
-    alert('URLs copiadas para a área de transferência!');
-  } catch {
-    alert('Falha ao copiar. Tente manualmente.');
-  }
-});
+      const urls = [...xml.getElementsByTagName("loc")].map(n => n.textContent);
 
-renderLinks();
+      const container = document.querySelector("#container");
+      const loading = document.querySelector("#loading");
+      loading.style.display = "none";
+
+      urls.forEach(url => {
+        const button = document.createElement("a");
+        button.href = url;
+        button.className = "btn";
+        button.textContent = formatName(url);
+        button.target = "_blank";
+        container.appendChild(button);
+      });
+    })
+    .catch(err => {
+      document.querySelector("#loading").textContent = "Erro ao carregar o sitemap.";
+      console.error(err);
+    });
 </script>
+
 </body>
 </html>
