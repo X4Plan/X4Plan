@@ -1,6 +1,6 @@
 <!DOCTYPE html><html><head><meta charset='UTF-8'>
 <style>
-  body { background:#0b1220; color:#fff; font-family:Arial, sans-serif; padding:40px; }
+  body { background:transparent; color:#fff; font-family:Arial, sans-serif; padding:40px; }
   h1 { color:#F78D4C; margin-bottom:40px; font-size:32px; }
   details {
     background: #0f172a;
@@ -53,6 +53,15 @@ function copiar(texto){
   alert("Link copiado!");
 }
 </script>
+  <!-- CAMPO DE BUSCA -->
+<input 
+  id="busca" 
+  type="text" 
+  placeholder="Pesquisar links..." 
+  onkeyup="filtrar()" 
+  style="width:100%;padding:14px;font-size:16px;border-radius:8px;border:1px solid #1e293b;background:#0f172a;color:#fff;margin-bottom:30px;"
+>
+
 </head><body><h1>Links do Site X4Plan</h1><details><summary>BLOG</summary>
         <div class="item">
             <div class="item-titulo">Conciliacao Bancaria Fluxo De Caixa Indicadores Saude Financeira X4Plan</div>
@@ -1967,4 +1976,22 @@ function copiar(texto){
             <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-folha-de-pagamento-rh-empresarial-download-excel</div>
             <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-folha-de-pagamento-rh-empresarial-download-excel')">Copiar</button>
         </div>
+  <script>
+function filtrar() {
+  const termo = document.getElementById("busca").value.toLowerCase();
+  const itens = document.querySelectorAll(".item");
+
+  itens.forEach(item => {
+    const titulo = item.querySelector(".item-titulo").innerText.toLowerCase();
+    const url = item.querySelector(".item-url").innerText.toLowerCase();
+    
+    if (titulo.includes(termo) || url.includes(termo)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+</script>
+
         </details></body></html>
