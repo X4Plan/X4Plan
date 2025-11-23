@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>URLs do Sitemap — X4Plan</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; color: #222; }
+    h1 { text-align: center; color: #0b1220; }
+    #buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .link-btn {
+      padding: 10px 14px;
+      background: #F78D4C;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      display: inline-block;
+    }
+    .link-btn:hover { background: #d8743f; }
+    #copyArea {
+      width: 100%; min-height: 60px; padding: 10px; margin-top: 20px;
+      border: 1px solid #ccc; border-radius: 6px; background: #fff;
+      white-space: pre-wrap; font-family: monospace;
+    }
+    button { margin-right: 8px; padding: 8px 12px; border: none;
+      border-radius: 4px; cursor: pointer; }
+    button.copy { background: #007bff; color: white; }
+    button.refresh { background: #28a745; color: white; }
+  </style>
+</head>
+<body>
+  <h1>URLs do Sitemap — X4Plan</h1>
+  <div>
+    <button class="refresh" id="refreshBtn">Atualizar lista</button>
+    <button class="copy" id="copyBtn">Copiar todas as URLs</button>
+  </div>
+  <div id="copyArea">Carregando…</div>
+  <div id="buttons"></div>
+
+<script>
+const SITEMAP = 'https://www.x4plan.com.br/pages-sitemap.xml';
+
+async function fetchSitemap() {
+  try {
+    const response = await fetch(SITEMAP);
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const xml = await response.text();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xml, 'application/xml');
+    const locs = Array.from(xmlDoc.getElementsByTagName('loc')).map(el => el.textContent.trim());
+    return locs;
+  } catch (err) {
+    console.error('Erro ao buscar sitemap:', err);
+    return null;
+  }
+}
+
+async function renderLinks() {
+  const locs = await fetchSitemap();
+  const buttonsDiv = document.getElementById('buttons');
+  const copyArea = document.getElementById('copyArea');
+  buttonsDiv.innerHTML = '';
+  if (!locs) {
+    copyArea.textContent = 'Não foi possível carregar as URLs.';
+    return;
+  }
+  copyArea.textContent = locs.join('\n');
+  locs.forEach(url => {
+    const a = document.createElement('a');
+    a.href = url;
+    a.textContent = url;
+    a.target = '_blank';
+    a.className = 'link-btn';
+    buttonsDiv.appendChild(a);
+  });
+}
+
+document.getElementById('refreshBtn').addEventListener('click', renderLinks);
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  const text = document.getElementById('copyArea').textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    alert('URLs copiadas para a área de transferência!');
+  } catch {
+    alert('Falha ao copiar. Tente manualmente.');
+  }
+});
+
+renderLinks();
+</script>
+</body>
+</html>
