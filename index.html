@@ -1,102 +1,1970 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>X4Plan – Lista Automática de Páginas</title>
-
+<!DOCTYPE html><html><head><meta charset='UTF-8'>
 <style>
-  body {
-    background: #0b1220;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    padding: 40px;
-    text-align: center;
+  body { background:#0b1220; color:#fff; font-family:Arial, sans-serif; padding:40px; }
+  h1 { color:#F78D4C; margin-bottom:40px; font-size:32px; }
+  details {
+    background: #0f172a;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #1e293b;
   }
-
-  h1 {
+  summary {
     color: #F78D4C;
-    margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
   }
-
-  #container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 600px;
-    margin: 0 auto;
+  .item {
+    background: #111827;
+    border: 1px solid #1f2937;
+    padding: 18px;
+    border-radius: 8px;
+    margin: 12px 0;
   }
-
-  .btn {
-    background: #F78D4C;
-    color: #0b1220;
-    padding: 14px;
-    border-radius: 6px;
-    text-decoration: none;
+  .item-titulo {
     font-size: 18px;
     font-weight: bold;
+    color: #F78D4C;
+    margin-bottom: 5px;
+  }
+  .item-url {
+    font-size: 14px;
+    color: #d1d5db;
+    word-break: break-all;
+  }
+  .copiar-btn {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #F78D4C;
+    color: #111827;
     border: none;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
   }
-
-  .btn:hover {
-    opacity: 0.85;
-  }
-
-  #loading {
-    font-size: 18px;
-    margin-top: 20px;
-  }
+  .copiar-btn:hover { opacity: 0.85; }
 </style>
-</head>
-<body>
-
-<h1>Páginas do Site X4Plan</h1>
-<div id="container"></div>
-<div id="loading">Carregando sitemap…</div>
 
 <script>
-  const sitemapURL = "https://www.x4plan.com.br/sitemap.xml";
-
-  function formatName(url) {
-    let name = url.replace("https://www.x4plan.com.br/", "")
-                  .replace("/", "")
-                  .replace("-", " ")
-                  .replace(".html", "")
-                  .trim();
-
-    if (name === "") name = "Página Inicial";
-
-    return name.charAt(0).toUpperCase() + name.slice(1);
-  }
-
-  fetch(sitemapURL)
-    .then(response => response.text())
-    .then(xmlText => {
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(xmlText, "application/xml");
-
-      const urls = [...xml.getElementsByTagName("loc")].map(n => n.textContent);
-
-      const container = document.querySelector("#container");
-      const loading = document.querySelector("#loading");
-      loading.style.display = "none";
-
-      urls.forEach(url => {
-        const button = document.createElement("a");
-        button.href = url;
-        button.className = "btn";
-        button.textContent = formatName(url);
-        button.target = "_blank";
-        container.appendChild(button);
-      });
-    })
-    .catch(err => {
-      document.querySelector("#loading").textContent = "Erro ao carregar o sitemap.";
-      console.error(err);
-    });
+function copiar(texto){
+  navigator.clipboard.writeText(texto);
+  alert("Link copiado!");
+}
 </script>
-
-</body>
-</html>
+</head><body><h1>Links do Site X4Plan</h1><details><summary>BLOG</summary>
+        <div class="item">
+            <div class="item-titulo">Conciliacao Bancaria Fluxo De Caixa Indicadores Saude Financeira X4Plan</div>
+            <div class="item-url">https://www.x4plan.com.br/post/conciliacao-bancaria-fluxo-de-caixa-indicadores-saude-financeira-x4plan</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/conciliacao-bancaria-fluxo-de-caixa-indicadores-saude-financeira-x4plan')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Descubra Como A X4Plan Revoluciona A Gestão Empresarial Com Controles Gerenciais Simuladores Financ</div>
+            <div class="item-url">https://www.x4plan.com.br/post/descubra-como-a-x4plan-revoluciona-a-gestão-empresarial-com-controles-gerenciais-simuladores-financ</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/descubra-como-a-x4plan-revoluciona-a-gestão-empresarial-com-controles-gerenciais-simuladores-financ')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Fpa Fpanda Estrategica Papel Fundamental Nas Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/post/consultoria-fpa-fpanda-estrategica-papel-fundamental-nas-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/consultoria-fpa-fpanda-estrategica-papel-fundamental-nas-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Seminário Facpcs Debate No 1º Painel Ifrs 18 Demonstrações Primárias</div>
+            <div class="item-url">https://www.x4plan.com.br/post/seminário-facpcs-debate-no-1º-painel-ifrs-18-demonstrações-primárias</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/seminário-facpcs-debate-no-1º-painel-ifrs-18-demonstrações-primárias')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Descubra A Planilha De Controle De Nota Fiscal Pj Com Cálculo Automático De Impostos Da X4Plan</div>
+            <div class="item-url">https://www.x4plan.com.br/post/descubra-a-planilha-de-controle-de-nota-fiscal-pj-com-cálculo-automático-de-impostos-da-x4plan</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/descubra-a-planilha-de-controle-de-nota-fiscal-pj-com-cálculo-automático-de-impostos-da-x4plan')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Princípios Contábeis Tudo Sobre Brgaap Usgaap E Ifrs</div>
+            <div class="item-url">https://www.x4plan.com.br/post/princípios-contábeis-tudo-sobre-brgaap-usgaap-e-ifrs</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/princípios-contábeis-tudo-sobre-brgaap-usgaap-e-ifrs')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">A Importância Das Ferramentas De Gestão De Projetos Tarefas E Prazos Soluções Inteligentes Da X4P</div>
+            <div class="item-url">https://www.x4plan.com.br/post/a-importância-das-ferramentas-de-gestão-de-projetos-tarefas-e-prazos-soluções-inteligentes-da-x4p</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/a-importância-das-ferramentas-de-gestão-de-projetos-tarefas-e-prazos-soluções-inteligentes-da-x4p')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Maximize Profits Financial Consulting For Small Medium Businesses</div>
+            <div class="item-url">https://www.x4plan.com.br/post/maximize-profits-financial-consulting-for-small-medium-businesses</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/maximize-profits-financial-consulting-for-small-medium-businesses')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Como A X4Plan Transforma A Gestão De Empresas Com Controles Gerenciais Personalizados</div>
+            <div class="item-url">https://www.x4plan.com.br/post/como-a-x4plan-transforma-a-gestão-de-empresas-com-controles-gerenciais-personalizados</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/como-a-x4plan-transforma-a-gestão-de-empresas-com-controles-gerenciais-personalizados')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Comece O Ano Com O Pé Direito A Importância Do Planejamento Financeiro Estratégico Para Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/post/comece-o-ano-com-o-pé-direito-a-importância-do-planejamento-financeiro-estratégico-para-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/comece-o-ano-com-o-pé-direito-a-importância-do-planejamento-financeiro-estratégico-para-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Nova Planilha Da X4Plan Auxilia Na Declaração De Bens E Direitos Do Irpf E Irpj Com Inteligência E E</div>
+            <div class="item-url">https://www.x4plan.com.br/post/nova-planilha-da-x4plan-auxilia-na-declaração-de-bens-e-direitos-do-irpf-e-irpj-com-inteligência-e-e</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/nova-planilha-da-x4plan-auxilia-na-declaração-de-bens-e-direitos-do-irpf-e-irpj-com-inteligência-e-e')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Expert Financial Fp A Consulting For Small Medium Businesses</div>
+            <div class="item-url">https://www.x4plan.com.br/post/expert-financial-fp-a-consulting-for-small-medium-businesses</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/expert-financial-fp-a-consulting-for-small-medium-businesses')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">W1 Consultoria Financeira Estrategica Maximizar Resultados Empresariais X4Plan</div>
+            <div class="item-url">https://www.x4plan.com.br/post/w1-consultoria-financeira-estrategica-maximizar-resultados-empresariais-x4plan</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/w1-consultoria-financeira-estrategica-maximizar-resultados-empresariais-x4plan')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Soluções Estratégicas Para Empresas Em Recuperação Judicial</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-soluções-estratégicas-para-empresas-em-recuperação-judicial</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-soluções-estratégicas-para-empresas-em-recuperação-judicial')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Especialista Em Recuperação Financeira De Empresa</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-especialista-em-recuperação-financeira-de-empresa</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-especialista-em-recuperação-financeira-de-empresa')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Reforma Tributaria 2025 Empresas Devem Se Preparar Para Impactos Financeiro</div>
+            <div class="item-url">https://www.x4plan.com.br/post/reforma-tributaria-2025-empresas-devem-se-preparar-para-impactos-financeiro</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/reforma-tributaria-2025-empresas-devem-se-preparar-para-impactos-financeiro')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Diferenca Contabilidade Fpa Planejamento Financeiro</div>
+            <div class="item-url">https://www.x4plan.com.br/post/diferenca-contabilidade-fpa-planejamento-financeiro</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/diferenca-contabilidade-fpa-planejamento-financeiro')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Se Destaca Em Infoprodutos Para Automação Gestão E Produtividade</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-se-destaca-em-infoprodutos-para-automação-gestão-e-produtividade</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-se-destaca-em-infoprodutos-para-automação-gestão-e-produtividade')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Bi Business Intelligence Modelagem Financeira</div>
+            <div class="item-url">https://www.x4plan.com.br/post/consultoria-bi-business-intelligence-modelagem-financeira</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/consultoria-bi-business-intelligence-modelagem-financeira')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Financeira Foco Pessoa Física Endividamento Familiar Gastos Despesas Divida</div>
+            <div class="item-url">https://www.x4plan.com.br/post/consultoria-financeira-foco-pessoa-física-endividamento-familiar-gastos-despesas-divida</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/consultoria-financeira-foco-pessoa-física-endividamento-familiar-gastos-despesas-divida')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Consultoria Com Soluções Financeiras Inteligentes Para Empresas C Automação Para Gestão Est</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-consultoria-com-soluções-financeiras-inteligentes-para-empresas-c-automação-para-gestão-est</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-consultoria-com-soluções-financeiras-inteligentes-para-empresas-c-automação-para-gestão-est')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Small Business Financial Planning Expert Fp A Consulting Services</div>
+            <div class="item-url">https://www.x4plan.com.br/post/small-business-financial-planning-expert-fp-a-consulting-services</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/small-business-financial-planning-expert-fp-a-consulting-services')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planejamento Financeiro No Agronegócio Entre A Volatilidade E A Necessidade De Eficiência</div>
+            <div class="item-url">https://www.x4plan.com.br/post/planejamento-financeiro-no-agronegócio-entre-a-volatilidade-e-a-necessidade-de-eficiência</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/planejamento-financeiro-no-agronegócio-entre-a-volatilidade-e-a-necessidade-de-eficiência')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Bpo Financeiro Estrategico Escritorios Advocacia Juridico Consultoria Sao Paulo</div>
+            <div class="item-url">https://www.x4plan.com.br/post/bpo-financeiro-estrategico-escritorios-advocacia-juridico-consultoria-sao-paulo</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/bpo-financeiro-estrategico-escritorios-advocacia-juridico-consultoria-sao-paulo')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Automação De Controles Gerenciais E Planejamento Financeiro Estratégico E Consultoria Fp A Para Empr</div>
+            <div class="item-url">https://www.x4plan.com.br/post/automação-de-controles-gerenciais-e-planejamento-financeiro-estratégico-e-consultoria-fp-a-para-empr</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/automação-de-controles-gerenciais-e-planejamento-financeiro-estratégico-e-consultoria-fp-a-para-empr')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">O Perigo De Depender Exclusivamente Da Nuvem Como Proteger Sua Empresa De Riscos Catastróficos</div>
+            <div class="item-url">https://www.x4plan.com.br/post/o-perigo-de-depender-exclusivamente-da-nuvem-como-proteger-sua-empresa-de-riscos-catastróficos</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/o-perigo-de-depender-exclusivamente-da-nuvem-como-proteger-sua-empresa-de-riscos-catastróficos')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Valuation Para M A E Captação De Recursos O Segredo Para Atrair Investidores E Maximizar O Valor Da</div>
+            <div class="item-url">https://www.x4plan.com.br/post/valuation-para-m-a-e-captação-de-recursos-o-segredo-para-atrair-investidores-e-maximizar-o-valor-da</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/valuation-para-m-a-e-captação-de-recursos-o-segredo-para-atrair-investidores-e-maximizar-o-valor-da')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">O Avanço Da Inteligência Artificial No Planejamento Financeiro Fp A</div>
+            <div class="item-url">https://www.x4plan.com.br/post/o-avanço-da-inteligência-artificial-no-planejamento-financeiro-fp-a</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/o-avanço-da-inteligência-artificial-no-planejamento-financeiro-fp-a')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Auditoria Financeira E Compliance Da X4Plan Precisão Eficiência E Segurança Para Sua Empresa</div>
+            <div class="item-url">https://www.x4plan.com.br/post/auditoria-financeira-e-compliance-da-x4plan-precisão-eficiência-e-segurança-para-sua-empresa</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/auditoria-financeira-e-compliance-da-x4plan-precisão-eficiência-e-segurança-para-sua-empresa')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Revolucionando A Gestão Financeira Com Soluções Exclusivas Inteligentes Unificando Planejamen</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-revolucionando-a-gestão-financeira-com-soluções-exclusivas-inteligentes-unificando-planejamen</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-revolucionando-a-gestão-financeira-com-soluções-exclusivas-inteligentes-unificando-planejamen')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Sustentabilidade Financeira Como Preparar Empresas Para O Futuro</div>
+            <div class="item-url">https://www.x4plan.com.br/post/sustentabilidade-financeira-como-preparar-empresas-para-o-futuro</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/sustentabilidade-financeira-como-preparar-empresas-para-o-futuro')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Kpis Financeiros Gestao Mais Relevantes Para Pmes Grandes Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/post/kpis-financeiros-gestao-mais-relevantes-para-pmes-grandes-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/kpis-financeiros-gestao-mais-relevantes-para-pmes-grandes-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Os Benefícios Do Bpo Financeiro Para Pequenas Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/post/os-benefícios-do-bpo-financeiro-para-pequenas-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/os-benefícios-do-bpo-financeiro-para-pequenas-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Financeira Bpo Estrategico Pequenas Media Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/post/consultoria-financeira-bpo-estrategico-pequenas-media-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/consultoria-financeira-bpo-estrategico-pequenas-media-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Cria Soluções Inteligentes Na Área Comercial De Empresas Como Planilha De Precificação Com Pr</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-cria-soluções-inteligentes-na-área-comercial-de-empresas-como-planilha-de-precificação-com-pr</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-cria-soluções-inteligentes-na-área-comercial-de-empresas-como-planilha-de-precificação-com-pr')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Avaliação De Desempenho Atrelada Ao Plano De Carreira E Ao Planejamento Financeiro Estratégico O Se</div>
+            <div class="item-url">https://www.x4plan.com.br/post/avaliação-de-desempenho-atrelada-ao-plano-de-carreira-e-ao-planejamento-financeiro-estratégico-o-se</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/avaliação-de-desempenho-atrelada-ao-plano-de-carreira-e-ao-planejamento-financeiro-estratégico-o-se')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Melhor Planilha De Controle Financeiro Pessoal Excel Para Download Suporte E Consultoria</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-melhor-planilha-de-controle-financeiro-pessoal-excel-para-download-suporte-e-consultoria</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-melhor-planilha-de-controle-financeiro-pessoal-excel-para-download-suporte-e-consultoria')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Planejamento Financeiro Estrategico Bpo Dicas Gestao Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/post/consultoria-planejamento-financeiro-estrategico-bpo-dicas-gestao-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/consultoria-planejamento-financeiro-estrategico-bpo-dicas-gestao-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Além Da Consultoria Em Planejamento Financeiro Estratégico Para Empresas Tem Soluções Em Au</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-além-da-consultoria-em-planejamento-financeiro-estratégico-para-empresas-tem-soluções-em-au</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-além-da-consultoria-em-planejamento-financeiro-estratégico-para-empresas-tem-soluções-em-au')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Cria Simulador Calculadora De Rescisão Trabalhista E Possível Valor De Ação Trabalhista</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-cria-simulador-calculadora-de-rescisão-trabalhista-e-possível-valor-de-ação-trabalhista</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-cria-simulador-calculadora-de-rescisão-trabalhista-e-possível-valor-de-ação-trabalhista')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Seu Mei Está Em Risco Entenda Como Evitar Multas E Cancelamento Do Cnpj Em 2025</div>
+            <div class="item-url">https://www.x4plan.com.br/post/seu-mei-está-em-risco-entenda-como-evitar-multas-e-cancelamento-do-cnpj-em-2025</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/seu-mei-está-em-risco-entenda-como-evitar-multas-e-cancelamento-do-cnpj-em-2025')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">A Origem Da X4Plan A Consultoria Que Transforma Gestão Financeira De Pequenas E Médias Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/post/a-origem-da-x4plan-a-consultoria-que-transforma-gestão-financeira-de-pequenas-e-médias-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/a-origem-da-x4plan-a-consultoria-que-transforma-gestão-financeira-de-pequenas-e-médias-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Inova Com Soluções Inteligentes De Controle Financeiro E Relatórios Gerenciais Para Meis E Pr</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-inova-com-soluções-inteligentes-de-controle-financeiro-e-relatórios-gerenciais-para-meis-e-pr</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-inova-com-soluções-inteligentes-de-controle-financeiro-e-relatórios-gerenciais-para-meis-e-pr')">Copiar</button>
+        </div>
+        </details><details><summary>PRODUTOS</summary>
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Despesas Gastos Mensais Pagamentos Recebimentos Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-despesas-gastos-mensais-pagamentos-recebimentos-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-despesas-gastos-mensais-pagamentos-recebimentos-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Melhor Calculadora Trabalhista Calculo Rescisao Simulador Indenizacao Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/melhor-calculadora-trabalhista-calculo-rescisao-simulador-indenizacao-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/melhor-calculadora-trabalhista-calculo-rescisao-simulador-indenizacao-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Bpo Financeiro Estrategico Gestao Pequenas Medias Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultoria-bpo-financeiro-estrategico-gestao-pequenas-medias-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultoria-bpo-financeiro-estrategico-gestao-pequenas-medias-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle De Ponto Clt Funcionario Excel Download Gestao Rh</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-de-ponto-clt-funcionario-excel-download-gestao-rh</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-de-ponto-clt-funcionario-excel-download-gestao-rh')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Loterica Lotofacil Importa Resultados Verifica Apostas Jogos</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-loterica-lotofacil-importa-resultados-verifica-apostas-jogos</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-loterica-lotofacil-importa-resultados-verifica-apostas-jogos')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Gestao Financeira Empresarial Automacao Controles Gerenciais</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultoria-gestao-financeira-empresarial-automacao-controles-gerenciais</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultoria-gestao-financeira-empresarial-automacao-controles-gerenciais')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Kit Planilhas Empresariais Gestao Rh Folha Pagamento Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/kit-planilhas-empresariais-gestao-rh-folha-pagamento-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/kit-planilhas-empresariais-gestao-rh-folha-pagamento-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Valuation De Empresas Para Fusao Aquisicao Ma</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultoria-valuation-de-empresas-para-fusao-aquisicao-ma</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultoria-valuation-de-empresas-para-fusao-aquisicao-ma')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Criacao Planilhas Controles Gerenciais Inteligentes Personalizados</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/criacao-planilhas-controles-gerenciais-inteligentes-personalizados</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/criacao-planilhas-controles-gerenciais-inteligentes-personalizados')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Gestao Empresarial Sp Planejamento Financeiro Estrategico Bi Fpa</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultoria-gestao-empresarial-sp-planejamento-financeiro-estrategico-bi-fpa</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultoria-gestao-empresarial-sp-planejamento-financeiro-estrategico-bi-fpa')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultor Financeiro Online Sp Consultoria Financeira Pessoal Familiar</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultor-financeiro-online-sp-consultoria-financeira-pessoal-familiar</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultor-financeiro-online-sp-consultoria-financeira-pessoal-familiar')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Fluxo De Caixa Conciliacao Bancaria Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-fluxo-de-caixa-conciliacao-bancaria-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-fluxo-de-caixa-conciliacao-bancaria-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Faturamento Recebimentos Cobranca Notas Fiscais Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-faturamento-recebimentos-cobranca-notas-fiscais-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-faturamento-recebimentos-cobranca-notas-fiscais-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Sistema Financeiro Empresarial Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-sistema-financeiro-empresarial-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-sistema-financeiro-empresarial-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Reestruturacao Financeira Empresas Turnaround Financeiro</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultoria-reestruturacao-financeira-empresas-turnaround-financeiro</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultoria-reestruturacao-financeira-empresas-turnaround-financeiro')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Relógio Display Digital 8Bits Da X4Plan Aprenda Programar Macro Vba No Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/relógio-display-digital-8bits-da-x4plan-aprenda-programar-macro-vba-no-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/relógio-display-digital-8bits-da-x4plan-aprenda-programar-macro-vba-no-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Avaliacao Desempenho Gestao Rh Recursos Humanos Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-avaliacao-desempenho-gestao-rh-recursos-humanos-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-avaliacao-desempenho-gestao-rh-recursos-humanos-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Calculadora Agronomica Custo Precificacao Plantio Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-calculadora-agronomica-custo-precificacao-plantio-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-calculadora-agronomica-custo-precificacao-plantio-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle De Ferias Gestao Rh Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-de-ferias-gestao-rh-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-de-ferias-gestao-rh-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Auditoria Financeira Empresarial Compliance Financeiro Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultoria-auditoria-financeira-empresarial-compliance-financeiro-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultoria-auditoria-financeira-empresarial-compliance-financeiro-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle De Vendas Canais E Faturamento Com Crm Integrado Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-de-vendas-canais-e-faturamento-com-crm-integrado-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-de-vendas-canais-e-faturamento-com-crm-integrado-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Nota Fiscal Impostos Simples Nacional Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-nota-fiscal-impostos-simples-nacional-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-nota-fiscal-impostos-simples-nacional-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Excel Gestao Pendencias Tarefas Controle Prazos Task Manager Projetos</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-excel-gestao-pendencias-tarefas-controle-prazos-task-manager-projetos</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-excel-gestao-pendencias-tarefas-controle-prazos-task-manager-projetos')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Fpa Planejamento Estrategico Financeiro Organizacao Financeira</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultoria-fpa-planejamento-estrategico-financeiro-organizacao-financeira</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultoria-fpa-planejamento-estrategico-financeiro-organizacao-financeira')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Ativos Controle Inventario Compras Estoque Depreciacao Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-ativos-controle-inventario-compras-estoque-depreciacao-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-ativos-controle-inventario-compras-estoque-depreciacao-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Empresarial Planejamento Financeiro Estrategico Fpa Online Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/consultoria-empresarial-planejamento-financeiro-estrategico-fpa-online-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/consultoria-empresarial-planejamento-financeiro-estrategico-fpa-online-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Gestao Controle Vendas Digital Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-gestao-controle-vendas-digital-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-gestao-controle-vendas-digital-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Melhor Planilha Controle Financeiro Pessoal Gestao Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/melhor-planilha-controle-financeiro-pessoal-gestao-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/melhor-planilha-controle-financeiro-pessoal-gestao-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Folha De Pagamento Rh Empresarial Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-folha-de-pagamento-rh-empresarial-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-folha-de-pagamento-rh-empresarial-download-excel')">Copiar</button>
+        </div>
+        </details><details><summary>SERVIÇOS</summary>
+        <div class="item">
+            <div class="item-titulo">Consultoria Bpo Financeiro Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-bpo-financeiro-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-bpo-financeiro-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Gestao Financeira Estrategica Pmes Empresas Sao Paulo Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/gestao-financeira-estrategica-pmes-empresas-sao-paulo-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/gestao-financeira-estrategica-pmes-empresas-sao-paulo-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Business Intelligence Sp Assessoria Bi</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-business-intelligence-sp-assessoria-bi</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-business-intelligence-sp-assessoria-bi')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Criacao Dashboars Kpis Personalizados</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-criacao-dashboars-kpis-personalizados</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-criacao-dashboars-kpis-personalizados')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Planejamento Estrategico Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-planejamento-estrategico-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-planejamento-estrategico-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Novidades Gestao Financeira Empresarial</div>
+            <div class="item-url">https://www.x4plan.com.br/novidades-gestao-financeira-empresarial</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/novidades-gestao-financeira-empresarial')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Financeiro Fp A Especialista Construtoras Incorporadoras</div>
+            <div class="item-url">https://www.x4plan.com.br/financeiro-fp-a-especialista-construtoras-incorporadoras</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/financeiro-fp-a-especialista-construtoras-incorporadoras')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Financeira Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-financeira-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-financeira-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Blank</div>
+            <div class="item-url">https://www.x4plan.com.br/blank</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/blank')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Agendamento Consulta Financeira Empresarial</div>
+            <div class="item-url">https://www.x4plan.com.br/agendamento-consulta-financeira-empresarial</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/agendamento-consulta-financeira-empresarial')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Modelagem Financeira Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-modelagem-financeira-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-modelagem-financeira-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Metodologia Gestao Financeira Estrategia Empresarial Sp Fpa</div>
+            <div class="item-url">https://www.x4plan.com.br/metodologia-gestao-financeira-estrategia-empresarial-sp-fpa</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/metodologia-gestao-financeira-estrategia-empresarial-sp-fpa')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Para Escritorio De Advocacia Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-para-escritorio-de-advocacia-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-para-escritorio-de-advocacia-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Www.X4Plan.Com.Br</div>
+            <div class="item-url">https://www.x4plan.com.br</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Gestao Financeira Empresarial Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-gestao-financeira-empresarial-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-gestao-financeira-empresarial-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Melhor Calculadora Trabalhista Calculo Rescisao Acao Indenizacao Advogado</div>
+            <div class="item-url">https://www.x4plan.com.br/melhor-calculadora-trabalhista-calculo-rescisao-acao-indenizacao-advogado</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/melhor-calculadora-trabalhista-calculo-rescisao-acao-indenizacao-advogado')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Bi Business Intelligence Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-bi-business-intelligence-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-bi-business-intelligence-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Financeiro Gestao Escritorio De Advocacia Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/financeiro-gestao-escritorio-de-advocacia-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/financeiro-gestao-escritorio-de-advocacia-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Melhor Consultoria Financeira Estrategica Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/x4plan-melhor-consultoria-financeira-estrategica-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/x4plan-melhor-consultoria-financeira-estrategica-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Obrigado</div>
+            <div class="item-url">https://www.x4plan.com.br/obrigado</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/obrigado')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Politica Devolucao Infoprodutos X4Plan</div>
+            <div class="item-url">https://www.x4plan.com.br/politica-devolucao-infoprodutos-x4plan</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/politica-devolucao-infoprodutos-x4plan')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Organizacao Financeira Dados Financeiros</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-organizacao-financeira-dados-financeiros</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-organizacao-financeira-dados-financeiros')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Financeira Bpo Financeiro Agro Agronegocio</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-financeira-bpo-financeiro-agro-agronegocio</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-financeira-bpo-financeiro-agro-agronegocio')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Financeira Escritorio Advocacia Bpo Fpa</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-financeira-escritorio-advocacia-bpo-fpa</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-financeira-escritorio-advocacia-bpo-fpa')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consulotira Auditoria Financeira Empresarial</div>
+            <div class="item-url">https://www.x4plan.com.br/consulotira-auditoria-financeira-empresarial</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consulotira-auditoria-financeira-empresarial')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planejamento Financeiro Robusto</div>
+            <div class="item-url">https://www.x4plan.com.br/planejamento-financeiro-robusto</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planejamento-financeiro-robusto')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Compliance Auditoria Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-compliance-auditoria-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-compliance-auditoria-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Bpo Estrategico Terceirizacao Planejamento Financeiro Fpa</div>
+            <div class="item-url">https://www.x4plan.com.br/bpo-estrategico-terceirizacao-planejamento-financeiro-fpa</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/bpo-estrategico-terceirizacao-planejamento-financeiro-fpa')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Fp A</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-fp-a</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-fp-a')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Venture Capital Private Equity Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-venture-capital-private-equity-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-venture-capital-private-equity-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Fp A Estrategia Financeira</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-fp-a-estrategia-financeira</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-fp-a-estrategia-financeira')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Bpo Terceirizacao Financeira Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/bpo-terceirizacao-financeira-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/bpo-terceirizacao-financeira-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Financeiro Para Startups Gestao Estrategica</div>
+            <div class="item-url">https://www.x4plan.com.br/financeiro-para-startups-gestao-estrategica</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/financeiro-para-startups-gestao-estrategica')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Fp A Para Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-fp-a-para-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-fp-a-para-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Recuperacao Judicial Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-recuperacao-judicial-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-recuperacao-judicial-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Empresarial Gestao Empresas Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-empresarial-gestao-empresas-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-empresarial-gestao-empresas-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Valuation Empresas Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-valuation-empresas-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-valuation-empresas-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Automacao Relatorios Dre Controles Gerenciais</div>
+            <div class="item-url">https://www.x4plan.com.br/automacao-relatorios-dre-controles-gerenciais</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/automacao-relatorios-dre-controles-gerenciais')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Bpo Planejamento Estrategico Para Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/bpo-planejamento-estrategico-para-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/bpo-planejamento-estrategico-para-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Financeira Estrategica Planejamento Agronegocio</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-financeira-estrategica-planejamento-agronegocio</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-financeira-estrategica-planejamento-agronegocio')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Turnaround Financeiro Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/turnaround-financeiro-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/turnaround-financeiro-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Relogio Digital 8Bits Wallpaper Fundo Tela Download</div>
+            <div class="item-url">https://www.x4plan.com.br/relogio-digital-8bits-wallpaper-fundo-tela-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/relogio-digital-8bits-wallpaper-fundo-tela-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Financeiro Bpo Para Startups Pequenas Empresas</div>
+            <div class="item-url">https://www.x4plan.com.br/financeiro-bpo-para-startups-pequenas-empresas</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/financeiro-bpo-para-startups-pequenas-empresas')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Consultoria Financeira Estrategica</div>
+            <div class="item-url">https://www.x4plan.com.br/x4plan-consultoria-financeira-estrategica</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/x4plan-consultoria-financeira-estrategica')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultor Financeiro Empresarial Online Sp</div>
+            <div class="item-url">https://www.x4plan.com.br/consultor-financeiro-empresarial-online-sp</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultor-financeiro-empresarial-online-sp')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Consultoria Fp A Analise De Dados</div>
+            <div class="item-url">https://www.x4plan.com.br/consultoria-fp-a-analise-de-dados</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/consultoria-fp-a-analise-de-dados')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Autoridade Reputacao Confiavel X4Plan</div>
+            <div class="item-url">https://www.x4plan.com.br/autoridade-reputacao-confiavel-x4plan</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/autoridade-reputacao-confiavel-x4plan')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">11062B_9B52A0Adb0Ac4756A04A9E7Aeaa7Ce3D~Mv2.Jpeg</div>
+            <div class="item-url">https://static.wixstatic.com/media/11062b_9b52a0adb0ac4756a04a9e7aeaa7ce3d~mv2.jpeg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/11062b_9b52a0adb0ac4756a04a9e7aeaa7ce3d~mv2.jpeg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_D6Ac51F41Bca426D8D517A8A64Ead27A~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_d6ac51f41bca426d8d517a8a64ead27a~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_d6ac51f41bca426d8d517a8a64ead27a~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_383F386B75Fd498Da3D6Df3Fbf108B08~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_383f386b75fd498da3d6df3fbf108b08~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_383f386b75fd498da3d6df3fbf108b08~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_6500758Df1B84Cf097857Bfbaf7C8885~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_6500758df1b84cf097857bfbaf7c8885~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_6500758df1b84cf097857bfbaf7c8885~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_C59F6Ff3567F4350Ade8Ad25126E6A49~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_c59f6ff3567f4350ade8ad25126e6a49~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_c59f6ff3567f4350ade8ad25126e6a49~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_Ae1C78217C1F40Fa8Ccd10E48C3E200E~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ae1c78217c1f40fa8ccd10e48c3e200e~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ae1c78217c1f40fa8ccd10e48c3e200e~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_1B0665703E1E44139Dd0491798Df9749~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_1b0665703e1e44139dd0491798df9749~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_1b0665703e1e44139dd0491798df9749~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_900A4835F7Bd4Df78078B4Ada80463D3~Mv2.Png</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_900a4835f7bd4df78078b4ada80463d3~mv2.png</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_900a4835f7bd4df78078b4ada80463d3~mv2.png')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_5Bc3D6Dbfff94B64Abdb42E0Ef4Eee01~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5bc3d6dbfff94b64abdb42e0ef4eee01~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5bc3d6dbfff94b64abdb42e0ef4eee01~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_58B8Cc5236364773A225F90C66Fea892~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_58b8cc5236364773a225f90c66fea892~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_58b8cc5236364773a225f90c66fea892~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_Ff2F95Cb373B474Aab92502C5Eba0161~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ff2f95cb373b474aab92502c5eba0161~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ff2f95cb373b474aab92502c5eba0161~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_B9B3F44006B94F3Bb3Cb770C977E997E~Mv2.Png</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_b9b3f44006b94f3bb3cb770c977e997e~mv2.png</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_b9b3f44006b94f3bb3cb770c977e997e~mv2.png')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_2417501289E243A4A36F0B5A95D310E2~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_2417501289e243a4a36f0b5a95d310e2~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_2417501289e243a4a36f0b5a95d310e2~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_A7A24Ee135C24091B443352Fc2Bfa8Dc~Mv2.Png</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_a7a24ee135c24091b443352fc2bfa8dc~mv2.png</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_a7a24ee135c24091b443352fc2bfa8dc~mv2.png')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_661798224C204871A01F728E81Ae213C~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_661798224c204871a01f728e81ae213c~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_661798224c204871a01f728e81ae213c~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">01Ec1C4E65F74969B02B47680434F5E5.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/01ec1c4e65f74969b02b47680434f5e5.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/01ec1c4e65f74969b02b47680434f5e5.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_284E6479C41E4055976E5A0F3412127C~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_284e6479c41e4055976e5a0f3412127c~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_284e6479c41e4055976e5a0f3412127c~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_50Bee95Cb1854F8Abd6E64Edaa37Ee9C~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_50bee95cb1854f8abd6e64edaa37ee9c~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_50bee95cb1854f8abd6e64edaa37ee9c~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_B9D1C990Eb2543699Cdc3Fdf0C032B7C~Mv2.Png</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_b9d1c990eb2543699cdc3fdf0c032b7c~mv2.png</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_b9d1c990eb2543699cdc3fdf0c032b7c~mv2.png')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">11062B_5D15E3A45006454F8C6Deb91B256323A~Mv2.Jpeg</div>
+            <div class="item-url">https://static.wixstatic.com/media/11062b_5d15e3a45006454f8c6deb91b256323a~mv2.jpeg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/11062b_5d15e3a45006454f8c6deb91b256323a~mv2.jpeg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">11062B_370A5Be6Ba304Fa1B18971638E424790~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/11062b_370a5be6ba304fa1b18971638e424790~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/11062b_370a5be6ba304fa1b18971638e424790~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_28E185Cf282F4Dcc838F42F78Cf1A3F1~Mv2.Png</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_28e185cf282f4dcc838f42f78cf1a3f1~mv2.png</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_28e185cf282f4dcc838f42f78cf1a3f1~mv2.png')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">11062B_B16A8E1D7Ea14D86B918870581Cba039~Mv2_D_2831_2831_S_4_2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/11062b_b16a8e1d7ea14d86b918870581cba039~mv2_d_2831_2831_s_4_2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/11062b_b16a8e1d7ea14d86b918870581cba039~mv2_d_2831_2831_s_4_2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_Fa46Cf293E9845E99Ea64810C5Fcf947~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_fa46cf293e9845e99ea64810c5fcf947~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_fa46cf293e9845e99ea64810c5fcf947~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_01862B073F4C45C281D1E75Bb1936A6F~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_01862b073f4c45c281d1e75bb1936a6f~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_01862b073f4c45c281d1e75bb1936a6f~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_4619696196C74687Bc028A7A322941A0~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_4619696196c74687bc028a7a322941a0~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_4619696196c74687bc028a7a322941a0~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_6Aac562C54Ef410Dbb26003Ba897C06C~Mv2.Jpeg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_6aac562c54ef410dbb26003ba897c06c~mv2.jpeg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_6aac562c54ef410dbb26003ba897c06c~mv2.jpeg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">11062B_9A57Fe7A23E7460Bbf61D311731D5C94~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/11062b_9a57fe7a23e7460bbf61d311731d5c94~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/11062b_9a57fe7a23e7460bbf61d311731d5c94~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_8Abc3Efb19D840F4B75251198Ff5A6A4~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_8abc3efb19d840f4b75251198ff5a6a4~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_8abc3efb19d840f4b75251198ff5a6a4~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_5E5Ee1C02E644C1781Aba2387E7Bf6D2~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5e5ee1c02e644c1781aba2387e7bf6d2~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5e5ee1c02e644c1781aba2387e7bf6d2~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_C77Bdf6Fb92C44089B7Dbece97087E53~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_c77bdf6fb92c44089b7dbece97087e53~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_c77bdf6fb92c44089b7dbece97087e53~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_4E5970Ed5Baa4223Bb9B2E159C76B34C~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_4e5970ed5baa4223bb9b2e159c76b34c~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_4e5970ed5baa4223bb9b2e159c76b34c~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_9A5D79Fbaf2A4B92Ae9563Dcf1653383~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_9a5d79fbaf2a4b92ae9563dcf1653383~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_9a5d79fbaf2a4b92ae9563dcf1653383~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_D5E52131Ba0A48B98Bba69F4Cbc537D0~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_d5e52131ba0a48b98bba69f4cbc537d0~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_d5e52131ba0a48b98bba69f4cbc537d0~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_2Fa5Acb615A84707Ab07483E5C39Ea61~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_2fa5acb615a84707ab07483e5c39ea61~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_2fa5acb615a84707ab07483e5c39ea61~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_5B8035D6D4Bc455Eaea4E88E3Af8E0D4~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5b8035d6d4bc455eaea4e88e3af8e0d4~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5b8035d6d4bc455eaea4e88e3af8e0d4~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_Bb8E2F3C8B344F3F9926F691D1E121F4~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_bb8e2f3c8b344f3f9926f691d1e121f4~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_bb8e2f3c8b344f3f9926f691d1e121f4~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_993Be9Ece5344485932442409A75F388~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_993be9ece5344485932442409a75f388~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_993be9ece5344485932442409a75f388~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_7F6B77F0Eb594Ceeb38Bb939Fba24E19~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_7f6b77f0eb594ceeb38bb939fba24e19~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_7f6b77f0eb594ceeb38bb939fba24e19~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_24Ff429De2D840598130B55D1F12968C~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_24ff429de2d840598130b55d1f12968c~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_24ff429de2d840598130b55d1f12968c~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_38F32Ee878Aa4C0Fa21975300127Db44~Mv2.Jpeg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_38f32ee878aa4c0fa21975300127db44~mv2.jpeg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_38f32ee878aa4c0fa21975300127db44~mv2.jpeg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_0B62E51Bb1E54146B86A69E55749D21F~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0b62e51bb1e54146b86a69e55749d21f~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0b62e51bb1e54146b86a69e55749d21f~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">7A574B_5A1E02C0F3A04Ad3B56397Ba4D495278~Mv2.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5a1e02c0f3a04ad3b56397ba4d495278~mv2.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5a1e02c0f3a04ad3b56397ba4d495278~mv2.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_8ff4b22dbd10411caf4d9852951889c7~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_8ff4b22dbd10411caf4d9852951889c7~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_f88ae27c4922478bb1513bef7a35ffba~mv2.jpg/v1/fit/w_1337,h_689,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_f88ae27c4922478bb1513bef7a35ffba~mv2.jpg/v1/fit/w_1337,h_689,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_28fd9f36cf684996b058ebcaefaa3222~mv2.jpg/v1/fit/w_1308,h_688,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_28fd9f36cf684996b058ebcaefaa3222~mv2.jpg/v1/fit/w_1308,h_688,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_bc44bbd5df614a0b845d3e09f0d9822a~mv2.jpg/v1/fit/w_1346,h_690,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_bc44bbd5df614a0b845d3e09f0d9822a~mv2.jpg/v1/fit/w_1346,h_690,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_50bee95cb1854f8abd6e64edaa37ee9c~mv2.jpg/v1/fit/w_1280,h_1280,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_50bee95cb1854f8abd6e64edaa37ee9c~mv2.jpg/v1/fit/w_1280,h_1280,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_d643b417219d423b9027858ae3776249~mv2.jpg/v1/fit/w_578,h_577,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_d643b417219d423b9027858ae3776249~mv2.jpg/v1/fit/w_578,h_577,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_e1b9b31da907417a957e10c7b02b6f22~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_e1b9b31da907417a957e10c7b02b6f22~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0950526534984a6db079744ddd3908e2~mv2.jpg/v1/fit/w_1280,h_1280,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0950526534984a6db079744ddd3908e2~mv2.jpg/v1/fit/w_1280,h_1280,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_c5c89c7400454b35af0c678959d0fa0d~mv2.jpg/v1/fit/w_535,h_464,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_c5c89c7400454b35af0c678959d0fa0d~mv2.jpg/v1/fit/w_535,h_464,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_57b6eff34d1d433c9fc903d768eb4626~mv2.jpg/v1/fit/w_533,h_467,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_57b6eff34d1d433c9fc903d768eb4626~mv2.jpg/v1/fit/w_533,h_467,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_b9c999e119f04eaca25a727f9913753e~mv2.jpg/v1/fit/w_515,h_464,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_b9c999e119f04eaca25a727f9913753e~mv2.jpg/v1/fit/w_515,h_464,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_92f854b9b0e04c9e9ad27334e3eb9402~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_92f854b9b0e04c9e9ad27334e3eb9402~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_257c7f90d5c844f996a4b6d7b6ba6a09~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_257c7f90d5c844f996a4b6d7b6ba6a09~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0c1e6299ee1743e18e2761c8308e84f9~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0c1e6299ee1743e18e2761c8308e84f9~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_777ed9606e6043a495fcf0436fa235c9~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_777ed9606e6043a495fcf0436fa235c9~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_379837d4281043efad540bc4713c3aee~mv2.jpg/v1/fit/w_1254,h_697,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_379837d4281043efad540bc4713c3aee~mv2.jpg/v1/fit/w_1254,h_697,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_946f4b3bd0984588aca6fcc57370b9f6~mv2.jpg/v1/fit/w_1470,h_980,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_946f4b3bd0984588aca6fcc57370b9f6~mv2.jpg/v1/fit/w_1470,h_980,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_9a5d79fbaf2a4b92ae9563dcf1653383~mv2.jpg/v1/fit/w_740,h_494,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_9a5d79fbaf2a4b92ae9563dcf1653383~mv2.jpg/v1/fit/w_740,h_494,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_d02b78a5d2464fa3a3a0b6db4ba0a6dc~mv2.jpg/v1/fit/w_291,h_408,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_d02b78a5d2464fa3a3a0b6db4ba0a6dc~mv2.jpg/v1/fit/w_291,h_408,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0b62e51bb1e54146b86a69e55749d21f~mv2.jpg/v1/fit/w_1735,h_1698,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0b62e51bb1e54146b86a69e55749d21f~mv2.jpg/v1/fit/w_1735,h_1698,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0ca76cf2a3fa4b73b5dd813e7d84207d~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0ca76cf2a3fa4b73b5dd813e7d84207d~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0f50cf92500343eeb02f0e5983480a9a~mv2.jpg/v1/fit/w_1151,h_892,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0f50cf92500343eeb02f0e5983480a9a~mv2.jpg/v1/fit/w_1151,h_892,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0ffdd63bb14a4793a4db2934c2ff4d21~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0ffdd63bb14a4793a4db2934c2ff4d21~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_bb55971e021c4878bc127ee6dd01d161~mv2.jpg/v1/fit/w_1280,h_1218,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_bb55971e021c4878bc127ee6dd01d161~mv2.jpg/v1/fit/w_1280,h_1218,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_2e75fcd667b4443d92c0f83a7c949cc3~mv2.jpg/v1/fit/w_2468,h_2475,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_2e75fcd667b4443d92c0f83a7c949cc3~mv2.jpg/v1/fit/w_2468,h_2475,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_12b6dbc127a94924aa2856d194dd9e8f~mv2.jpg/v1/fit/w_1024,h_976,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_12b6dbc127a94924aa2856d194dd9e8f~mv2.jpg/v1/fit/w_1024,h_976,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_c020f566baa74472b33c6577f6877dd9~mv2.jpg/v1/fit/w_938,h_965,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_c020f566baa74472b33c6577f6877dd9~mv2.jpg/v1/fit/w_938,h_965,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_3691520a15844385929ecdb9020d9f3d~mv2.jpg/v1/fit/w_1582,h_930,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_3691520a15844385929ecdb9020d9f3d~mv2.jpg/v1/fit/w_1582,h_930,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_c0866b43efc24924bc42440be179645e~mv2.jpg/v1/fit/w_1588,h_930,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_c0866b43efc24924bc42440be179645e~mv2.jpg/v1/fit/w_1588,h_930,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_f1d91865e7334100aea3c34b61c52418~mv2.jpg/v1/fit/w_1679,h_932,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_f1d91865e7334100aea3c34b61c52418~mv2.jpg/v1/fit/w_1679,h_932,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5f0e1286c6594952aeb5c2d7e9164221~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5f0e1286c6594952aeb5c2d7e9164221~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_15759f14691546e48ba4715d4e552471~mv2.jpg/v1/fit/w_100,h_100,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_15759f14691546e48ba4715d4e552471~mv2.jpg/v1/fit/w_100,h_100,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_2b41620a9d224b55b2a06abc7472501a~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_2b41620a9d224b55b2a06abc7472501a~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0082fc786eca4fa188043f703e457ba6~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0082fc786eca4fa188043f703e457ba6~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ac1b4a0f116441b4a9d872cabed68919~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ac1b4a0f116441b4a9d872cabed68919~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_3336c33c46c24652a228ea0821e907e5~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_3336c33c46c24652a228ea0821e907e5~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_16a7c17dab66481ebb08298bd50c756f~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_16a7c17dab66481ebb08298bd50c756f~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_714d9c0bc1d443c09580f6a41dd19dda~mv2.jpg/v1/fit/w_1080,h_1076,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_714d9c0bc1d443c09580f6a41dd19dda~mv2.jpg/v1/fit/w_1080,h_1076,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_2a1733611ff24342b6ae7687706dc3b1~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_2a1733611ff24342b6ae7687706dc3b1~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_d0eea64399284dd0b52ca9a563de2eb9~mv2.jpg/v1/fit/w_1317,h_670,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_d0eea64399284dd0b52ca9a563de2eb9~mv2.jpg/v1/fit/w_1317,h_670,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0c9dd25bc16d4904af550e59903b29af~mv2.jpg/v1/fit/w_1308,h_655,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0c9dd25bc16d4904af550e59903b29af~mv2.jpg/v1/fit/w_1308,h_655,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0a1ee1535e6148a382085c13f5355f99~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0a1ee1535e6148a382085c13f5355f99~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_38f32ee878aa4c0fa21975300127db44~mv2.jpeg/v1/fit/w_804,h_760,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_38f32ee878aa4c0fa21975300127db44~mv2.jpeg/v1/fit/w_804,h_760,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_d6ac51f41bca426d8d517a8a64ead27a~mv2.jpg/v1/fit/w_423,h_400,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_d6ac51f41bca426d8d517a8a64ead27a~mv2.jpg/v1/fit/w_423,h_400,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ed0afbc6480d4781adf010af880714e5~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ed0afbc6480d4781adf010af880714e5~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_f4e73f0d65394933bba11e00804c039e~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_f4e73f0d65394933bba11e00804c039e~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5bc3d6dbfff94b64abdb42e0ef4eee01~mv2.jpg/v1/fit/w_1024,h_548,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5bc3d6dbfff94b64abdb42e0ef4eee01~mv2.jpg/v1/fit/w_1024,h_548,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5e6caea57f9148658b642b4c1e4ea396~mv2.jpg/v1/fit/w_370,h_349,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5e6caea57f9148658b642b4c1e4ea396~mv2.jpg/v1/fit/w_370,h_349,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_7f6b77f0eb594ceeb38bb939fba24e19~mv2.jpg/v1/fit/w_881,h_616,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_7f6b77f0eb594ceeb38bb939fba24e19~mv2.jpg/v1/fit/w_881,h_616,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ec9cd4ac6dc64927bb6c5e51d7589722~mv2.jpg/v1/fit/w_1286,h_671,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ec9cd4ac6dc64927bb6c5e51d7589722~mv2.jpg/v1/fit/w_1286,h_671,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_6500758df1b84cf097857bfbaf7c8885~mv2.jpg/v1/fit/w_2960,h_1972,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_6500758df1b84cf097857bfbaf7c8885~mv2.jpg/v1/fit/w_2960,h_1972,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_7cb6e5f3850b46dabf2cbef163dde9d3~mv2.jpeg/v1/fit/w_625,h_587,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_7cb6e5f3850b46dabf2cbef163dde9d3~mv2.jpeg/v1/fit/w_625,h_587,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_152793e02f604691bafd88eb1dac0182~mv2.jpg/v1/fit/w_1340,h_696,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_152793e02f604691bafd88eb1dac0182~mv2.jpg/v1/fit/w_1340,h_696,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_96d7d90968854b5fa227f566d1f72bb7~mv2.jpg/v1/fit/w_800,h_519,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_96d7d90968854b5fa227f566d1f72bb7~mv2.jpg/v1/fit/w_800,h_519,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_8fb130f94af4428791711eec41e2616b~mv2.jpg/v1/fit/w_1349,h_699,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_8fb130f94af4428791711eec41e2616b~mv2.jpg/v1/fit/w_1349,h_699,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_1c47ec3679404d36a5ec0fb905fe93a5~mv2.jpg/v1/fit/w_1302,h_699,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_1c47ec3679404d36a5ec0fb905fe93a5~mv2.jpg/v1/fit/w_1302,h_699,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ec0b08832ecd4498b95fc81acdfbd8fc~mv2.jpg/v1/fit/w_1015,h_304,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ec0b08832ecd4498b95fc81acdfbd8fc~mv2.jpg/v1/fit/w_1015,h_304,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ad9b6938799c4cb69edd20347153c8eb~mv2.jpg/v1/fit/w_327,h_341,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ad9b6938799c4cb69edd20347153c8eb~mv2.jpg/v1/fit/w_327,h_341,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_16c60c6028894bde8e346f4c6e3e8dc7~mv2.jpg/v1/fit/w_730,h_760,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_16c60c6028894bde8e346f4c6e3e8dc7~mv2.jpg/v1/fit/w_730,h_760,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_43429bf688474d0dafd396c9f3d2947f~mv2.jpg/v1/fit/w_1310,h_666,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_43429bf688474d0dafd396c9f3d2947f~mv2.jpg/v1/fit/w_1310,h_666,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_165fb8fc4dd142949cb2a11332819eac~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_165fb8fc4dd142949cb2a11332819eac~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5f8e5a26903143cf8a7c553347435584~mv2.jpg/v1/fit/w_612,h_408,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5f8e5a26903143cf8a7c553347435584~mv2.jpg/v1/fit/w_612,h_408,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_90691457b17046f4bb63fa96e8aa11b3~mv2.jpg/v1/fit/w_1500,h_1000,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_90691457b17046f4bb63fa96e8aa11b3~mv2.jpg/v1/fit/w_1500,h_1000,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_600791f27b414afba69601fe4da220d9~mv2.jpg/v1/fit/w_1735,h_1698,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_600791f27b414afba69601fe4da220d9~mv2.jpg/v1/fit/w_1735,h_1698,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_47f21d84f668467cbd42cddab5c22c85~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_47f21d84f668467cbd42cddab5c22c85~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_a16cbad7c2954afd92613a1abe109961~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_a16cbad7c2954afd92613a1abe109961~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_adc5590a31dc4a139725a61db76d1a76~mv2.jpg/v1/fit/w_1919,h_1020,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_adc5590a31dc4a139725a61db76d1a76~mv2.jpg/v1/fit/w_1919,h_1020,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_01b50592b89c4b219d400f4b1763c2a7~mv2.jpg/v1/fit/w_1125,h_1130,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_01b50592b89c4b219d400f4b1763c2a7~mv2.jpg/v1/fit/w_1125,h_1130,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_7e8b283aa94340c29e1c53dfc4672bdc~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_7e8b283aa94340c29e1c53dfc4672bdc~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_12e1261678a243cf86690511ff4292d4~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_12e1261678a243cf86690511ff4292d4~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ff698e70fc2d40859045dd0fbccd6e28~mv2.jpg/v1/fit/w_1202,h_671,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ff698e70fc2d40859045dd0fbccd6e28~mv2.jpg/v1/fit/w_1202,h_671,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_87a19deb4f174e1a855fb3557ae77eb1~mv2.jpg/v1/fit/w_1316,h_663,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_87a19deb4f174e1a855fb3557ae77eb1~mv2.jpg/v1/fit/w_1316,h_663,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_24d1fd0dab804f649d9103a07ecfe8e5~mv2.jpg/v1/fit/w_917,h_661,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_24d1fd0dab804f649d9103a07ecfe8e5~mv2.jpg/v1/fit/w_917,h_661,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_6fbf4bd0eda44a0eaadc3fe2113975fe~mv2.jpg/v1/fit/w_452,h_432,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_6fbf4bd0eda44a0eaadc3fe2113975fe~mv2.jpg/v1/fit/w_452,h_432,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_326e1c049c8649c29b3efded271eff5b~mv2.jpg/v1/fit/w_740,h_493,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_326e1c049c8649c29b3efded271eff5b~mv2.jpg/v1/fit/w_740,h_493,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_f243ba65a75641a68604ed51792ac0ba~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_f243ba65a75641a68604ed51792ac0ba~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_6d9d9f62e02a4bc18a9e7759c41db281~mv2.jpg/v1/fit/w_1424,h_930,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_6d9d9f62e02a4bc18a9e7759c41db281~mv2.jpg/v1/fit/w_1424,h_930,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_6e3b903cdb714f74aedd586879a4909f~mv2.jpg/v1/fit/w_1674,h_930,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_6e3b903cdb714f74aedd586879a4909f~mv2.jpg/v1/fit/w_1674,h_930,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_39b22ddea64d4d8097e710b81c8e6965~mv2.jpg/v1/fit/w_1412,h_930,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_39b22ddea64d4d8097e710b81c8e6965~mv2.jpg/v1/fit/w_1412,h_930,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_e5329250dfd44fb7bbf92909ed95a980~mv2.jpg/v1/fit/w_1443,h_930,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_e5329250dfd44fb7bbf92909ed95a980~mv2.jpg/v1/fit/w_1443,h_930,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_bb967f3eaa814134bf65a4950df36f4b~mv2.jpg/v1/fit/w_1420,h_930,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_bb967f3eaa814134bf65a4950df36f4b~mv2.jpg/v1/fit/w_1420,h_930,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_00272b8132c94000b7fc306d1d918b28~mv2.jpg/v1/fit/w_1655,h_930,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_00272b8132c94000b7fc306d1d918b28~mv2.jpg/v1/fit/w_1655,h_930,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_b31fb540c32a4c308f9c1c51578cc75d~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_b31fb540c32a4c308f9c1c51578cc75d~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_c59f6ff3567f4350ade8ad25126e6a49~mv2.jpg/v1/fit/w_1280,h_1280,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_c59f6ff3567f4350ade8ad25126e6a49~mv2.jpg/v1/fit/w_1280,h_1280,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_d46d9ee0325c4e458161ad1b416affdd~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_d46d9ee0325c4e458161ad1b416affdd~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_27996c29a8b047c892aa7819c9a95959~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_27996c29a8b047c892aa7819c9a95959~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ad1e293c8dd849369cff4104f9553064~mv2.jpg/v1/fit/w_1666,h_747,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ad1e293c8dd849369cff4104f9553064~mv2.jpg/v1/fit/w_1666,h_747,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_a42a1cf5b2af45c1bea2be5c4024fc91~mv2.jpg/v1/fit/w_1744,h_854,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_a42a1cf5b2af45c1bea2be5c4024fc91~mv2.jpg/v1/fit/w_1744,h_854,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_2e81d843afda439696b36bac993872dd~mv2.jpg/v1/fit/w_1849,h_891,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_2e81d843afda439696b36bac993872dd~mv2.jpg/v1/fit/w_1849,h_891,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ff022635234a494ca6834504572c8234~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ff022635234a494ca6834504572c8234~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_bdc3ab69d162467580adef97b3ac000e~mv2.jpg/v1/fit/w_980,h_980,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_bdc3ab69d162467580adef97b3ac000e~mv2.jpg/v1/fit/w_980,h_980,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_a10de179472c4478a61bce1f5a931e47~mv2.jpg/v1/fit/w_653,h_629,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_a10de179472c4478a61bce1f5a931e47~mv2.jpg/v1/fit/w_653,h_629,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_ff2f95cb373b474aab92502c5eba0161~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_ff2f95cb373b474aab92502c5eba0161~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_05419f1d5f8b4fc2a5cb1d0f02723ec2~mv2.jpg/v1/fit/w_1859,h_880,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_05419f1d5f8b4fc2a5cb1d0f02723ec2~mv2.jpg/v1/fit/w_1859,h_880,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0aa07b8b8660462bb742c867a8dca412~mv2.jpg/v1/fit/w_1407,h_693,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0aa07b8b8660462bb742c867a8dca412~mv2.jpg/v1/fit/w_1407,h_693,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_8388b9785daa4428824f2fd0c9e5cd5d~mv2.jpg/v1/fit/w_1353,h_662,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_8388b9785daa4428824f2fd0c9e5cd5d~mv2.jpg/v1/fit/w_1353,h_662,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Png</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_e2dc787cc42941f3ade6ef311d92b622~mv2.png/v1/fit/w_2160,h_2160,q_90/file.png</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_e2dc787cc42941f3ade6ef311d92b622~mv2.png/v1/fit/w_2160,h_2160,q_90/file.png')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_cfc95147ecdb416d981bae1a36543f50~mv2.jpg/v1/fit/w_281,h_286,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_cfc95147ecdb416d981bae1a36543f50~mv2.jpg/v1/fit/w_281,h_286,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_d7941a22d435419fb3240d7b35e0552d~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_d7941a22d435419fb3240d7b35e0552d~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_eb890615e7b44fcd8139ceb6fa4a70cf~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_eb890615e7b44fcd8139ceb6fa4a70cf~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_e4ff504ef5634faf96e4b17c5d4709a4~mv2.jpg/v1/fit/w_1304,h_663,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_e4ff504ef5634faf96e4b17c5d4709a4~mv2.jpg/v1/fit/w_1304,h_663,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5e68d880f76c4edcb830f3a88308416e~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5e68d880f76c4edcb830f3a88308416e~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_b58654ee7338430fa9ced960f83feddd~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_b58654ee7338430fa9ced960f83feddd~mv2.jpeg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_a382b75783f849a48b12ea542b282605~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_a382b75783f849a48b12ea542b282605~mv2.jpg/v1/fit/w_1024,h_1024,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_0c4eefd383724bacb377963d80897367~mv2.jpg/v1/fit/w_1298,h_702,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_0c4eefd383724bacb377963d80897367~mv2.jpg/v1/fit/w_1298,h_702,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_08ecacacd9c34dc881be99b69460ad4b~mv2.jpg/v1/fit/w_1073,h_523,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_08ecacacd9c34dc881be99b69460ad4b~mv2.jpg/v1/fit/w_1073,h_523,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_5a7ce9dc16c54b0e955c5d162f9a01c1~mv2.jpg/v1/fit/w_1349,h_699,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_5a7ce9dc16c54b0e955c5d162f9a01c1~mv2.jpg/v1/fit/w_1349,h_699,q_90/file.jpg')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">File.Jpg</div>
+            <div class="item-url">https://static.wixstatic.com/media/7a574b_c496dc3980924256a5e80bbf2fea1409~mv2.jpg/v1/fit/w_271,h_386,q_90/file.jpg</div>
+            <button class="copiar-btn" onclick="copiar('https://static.wixstatic.com/media/7a574b_c496dc3980924256a5e80bbf2fea1409~mv2.jpg/v1/fit/w_271,h_386,q_90/file.jpg')">Copiar</button>
+        </div>
+        </details><details><summary>PLANILHAS</summary>
+        <div class="item">
+            <div class="item-titulo">Planilha Bens Ativos Patrimonios Inventario Irpf Download</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-bens-ativos-patrimonios-inventario-irpf-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-bens-ativos-patrimonios-inventario-irpf-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Faturamento Cobranca Recebimentos Notas Fiscais</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-faturamento-cobranca-recebimentos-notas-fiscais</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-faturamento-cobranca-recebimentos-notas-fiscais')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Inventario Controle Ativos Depreciacao Excel Download</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-inventario-controle-ativos-depreciacao-excel-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-inventario-controle-ativos-depreciacao-excel-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Preficificacao Download Gratis Excel Produtos Servicos</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-preficificacao-download-gratis-excel-produtos-servicos</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-preficificacao-download-gratis-excel-produtos-servicos')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Inventario Controle Estoque Depreciacao Download</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-inventario-controle-estoque-depreciacao-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-inventario-controle-estoque-depreciacao-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Rh Controle Ponto Clt Horas Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-rh-controle-ponto-clt-horas-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-rh-controle-ponto-clt-horas-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Irpf 2025 Excel Ativos Bens Patrimonio Download</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-irpf-2025-excel-ativos-bens-patrimonio-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-irpf-2025-excel-ativos-bens-patrimonio-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Download Planilha Controle Faturamento</div>
+            <div class="item-url">https://www.x4plan.com.br/download-planilha-controle-faturamento</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/download-planilha-controle-faturamento')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Estoque Inventario Depreciacao Excel Download</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-controle-estoque-inventario-depreciacao-excel-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-controle-estoque-inventario-depreciacao-excel-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Planejamento Vendas Digital</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-planejamento-vendas-digital</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-planejamento-vendas-digital')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Excel Task Manager Gestao Projetos Prazos Tarefas Pendencias</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-excel-task-manager-gestao-projetos-prazos-tarefas-pendencias</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-excel-task-manager-gestao-projetos-prazos-tarefas-pendencias')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Fluxo Caixa Profissional Empresarial Melhor</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-fluxo-caixa-profissional-empresarial-melhor</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-fluxo-caixa-profissional-empresarial-melhor')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilhas Profissionais Gestao Controle Rh Recursos Humanos</div>
+            <div class="item-url">https://www.x4plan.com.br/planilhas-profissionais-gestao-controle-rh-recursos-humanos</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilhas-profissionais-gestao-controle-rh-recursos-humanos')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Loterica Lotofacil Importa Verifica Resultados Jogos</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-loterica-lotofacil-importa-verifica-resultados-jogos</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-loterica-lotofacil-importa-verifica-resultados-jogos')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Recebimentos Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-recebimentos-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-recebimentos-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Excel Controle Tarefas Prazos Pendencias Task Manager</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-excel-controle-tarefas-prazos-pendencias-task-manager</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-excel-controle-tarefas-prazos-pendencias-task-manager')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Excel Controle Compras Pagamentos Download</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-excel-controle-compras-pagamentos-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-excel-controle-compras-pagamentos-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Excel Controle Financeiro Pessoal Download Gratis</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-excel-controle-financeiro-pessoal-download-gratis</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-excel-controle-financeiro-pessoal-download-gratis')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Loterica Lotofacil Importa Resultados Verifica Apostas Jogos Loteria</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-loterica-lotofacil-importa-resultados-verifica-apostas-jogos-loteria</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-loterica-lotofacil-importa-resultados-verifica-apostas-jogos-loteria')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Excel Folha Pagamento Download</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-excel-folha-pagamento-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-excel-folha-pagamento-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Conciliacao Bancaria Excel Importa Extratos Ofx</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-conciliacao-bancaria-excel-importa-extratos-ofx</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-conciliacao-bancaria-excel-importa-extratos-ofx')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Especialista Excel Planilhas Inteligentes Controles Gerenciais</div>
+            <div class="item-url">https://www.x4plan.com.br/especialista-excel-planilhas-inteligentes-controles-gerenciais</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/especialista-excel-planilhas-inteligentes-controles-gerenciais')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Download Planilha Fluxo De Caixa Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/download-planilha-fluxo-de-caixa-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/download-planilha-fluxo-de-caixa-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Gestao Vendas Com Crm Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-gestao-vendas-com-crm-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-gestao-vendas-com-crm-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Vendas Canais Digitais Crm Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-controle-vendas-canais-digitais-crm-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-controle-vendas-canais-digitais-crm-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Agricola Gestao Agronegocio Download</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-agricola-gestao-agronegocio-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-agricola-gestao-agronegocio-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Agronomica Download Gestao Financeira Agronegocio</div>
+            <div class="item-url">https://www.x4plan.com.br/planilha-agronomica-download-gestao-financeira-agronegocio</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/planilha-agronomica-download-gestao-financeira-agronegocio')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Descubra A Planilha De Controle De Nota Fiscal Pj Com Cálculo Automático De Impostos Da X4Plan</div>
+            <div class="item-url">https://www.x4plan.com.br/post/descubra-a-planilha-de-controle-de-nota-fiscal-pj-com-cálculo-automático-de-impostos-da-x4plan</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/descubra-a-planilha-de-controle-de-nota-fiscal-pj-com-cálculo-automático-de-impostos-da-x4plan')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Nova Planilha Da X4Plan Auxilia Na Declaração De Bens E Direitos Do Irpf E Irpj Com Inteligência E E</div>
+            <div class="item-url">https://www.x4plan.com.br/post/nova-planilha-da-x4plan-auxilia-na-declaração-de-bens-e-direitos-do-irpf-e-irpj-com-inteligência-e-e</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/nova-planilha-da-x4plan-auxilia-na-declaração-de-bens-e-direitos-do-irpf-e-irpj-com-inteligência-e-e')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Cria Soluções Inteligentes Na Área Comercial De Empresas Como Planilha De Precificação Com Pr</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-cria-soluções-inteligentes-na-área-comercial-de-empresas-como-planilha-de-precificação-com-pr</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-cria-soluções-inteligentes-na-área-comercial-de-empresas-como-planilha-de-precificação-com-pr')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">X4Plan Melhor Planilha De Controle Financeiro Pessoal Excel Para Download Suporte E Consultoria</div>
+            <div class="item-url">https://www.x4plan.com.br/post/x4plan-melhor-planilha-de-controle-financeiro-pessoal-excel-para-download-suporte-e-consultoria</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/post/x4plan-melhor-planilha-de-controle-financeiro-pessoal-excel-para-download-suporte-e-consultoria')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Despesas Gastos Mensais Pagamentos Recebimentos Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-despesas-gastos-mensais-pagamentos-recebimentos-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-despesas-gastos-mensais-pagamentos-recebimentos-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle De Ponto Clt Funcionario Excel Download Gestao Rh</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-de-ponto-clt-funcionario-excel-download-gestao-rh</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-de-ponto-clt-funcionario-excel-download-gestao-rh')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Loterica Lotofacil Importa Resultados Verifica Apostas Jogos</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-loterica-lotofacil-importa-resultados-verifica-apostas-jogos</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-loterica-lotofacil-importa-resultados-verifica-apostas-jogos')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Kit Planilhas Empresariais Gestao Rh Folha Pagamento Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/kit-planilhas-empresariais-gestao-rh-folha-pagamento-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/kit-planilhas-empresariais-gestao-rh-folha-pagamento-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Criacao Planilhas Controles Gerenciais Inteligentes Personalizados</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/criacao-planilhas-controles-gerenciais-inteligentes-personalizados</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/criacao-planilhas-controles-gerenciais-inteligentes-personalizados')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Fluxo De Caixa Conciliacao Bancaria Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-fluxo-de-caixa-conciliacao-bancaria-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-fluxo-de-caixa-conciliacao-bancaria-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Faturamento Recebimentos Cobranca Notas Fiscais Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-faturamento-recebimentos-cobranca-notas-fiscais-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-faturamento-recebimentos-cobranca-notas-fiscais-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Sistema Financeiro Empresarial Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-sistema-financeiro-empresarial-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-sistema-financeiro-empresarial-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Avaliacao Desempenho Gestao Rh Recursos Humanos Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-avaliacao-desempenho-gestao-rh-recursos-humanos-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-avaliacao-desempenho-gestao-rh-recursos-humanos-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Calculadora Agronomica Custo Precificacao Plantio Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-calculadora-agronomica-custo-precificacao-plantio-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-calculadora-agronomica-custo-precificacao-plantio-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle De Ferias Gestao Rh Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-de-ferias-gestao-rh-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-de-ferias-gestao-rh-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle De Vendas Canais E Faturamento Com Crm Integrado Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-de-vendas-canais-e-faturamento-com-crm-integrado-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-de-vendas-canais-e-faturamento-com-crm-integrado-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Nota Fiscal Impostos Simples Nacional Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-nota-fiscal-impostos-simples-nacional-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-nota-fiscal-impostos-simples-nacional-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Excel Gestao Pendencias Tarefas Controle Prazos Task Manager Projetos</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-excel-gestao-pendencias-tarefas-controle-prazos-task-manager-projetos</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-excel-gestao-pendencias-tarefas-controle-prazos-task-manager-projetos')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Ativos Controle Inventario Compras Estoque Depreciacao Download</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-ativos-controle-inventario-compras-estoque-depreciacao-download</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-ativos-controle-inventario-compras-estoque-depreciacao-download')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Gestao Controle Vendas Digital Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-gestao-controle-vendas-digital-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-gestao-controle-vendas-digital-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Melhor Planilha Controle Financeiro Pessoal Gestao Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/melhor-planilha-controle-financeiro-pessoal-gestao-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/melhor-planilha-controle-financeiro-pessoal-gestao-download-excel')">Copiar</button>
+        </div>
+        
+        <div class="item">
+            <div class="item-titulo">Planilha Controle Folha De Pagamento Rh Empresarial Download Excel</div>
+            <div class="item-url">https://www.x4plan.com.br/product-page/planilha-controle-folha-de-pagamento-rh-empresarial-download-excel</div>
+            <button class="copiar-btn" onclick="copiar('https://www.x4plan.com.br/product-page/planilha-controle-folha-de-pagamento-rh-empresarial-download-excel')">Copiar</button>
+        </div>
+        </details></body></html>
